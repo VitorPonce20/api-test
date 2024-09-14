@@ -17,7 +17,14 @@ public class Service {
 
     }
 
-    public void post(String url, String body){
+    public void post(String url, String payload){
+
+        Response response = given()
+                .header("Accept", "Application/json")
+                .when()
+                .body(payload)
+                .post()
+                .then().extract().response();
 
     }
 
