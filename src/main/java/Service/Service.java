@@ -6,10 +6,10 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
 public class Service {
-    RestAssured restAssured = new RestAssured();
 
-    public void get(String url){
-        Response response = (Response) given()
+
+    public Response get(String url){
+        return  given()
                 .header("Accept", "Aplication/json")
                 .when()
                 .get(url)
@@ -17,9 +17,9 @@ public class Service {
 
     }
 
-    public void post(String url, String payload){
+    public Response post(String url, String payload){
 
-        Response response = given()
+        return given()
                 .header("Accept", "Application/json")
                 .when()
                 .body(payload)
@@ -28,8 +28,8 @@ public class Service {
 
     }
 
-    public void put(String url, String payload){
-        Response response = given()
+    public Response put(String url, String payload){
+        return given()
                 .header("Accept", "Application/json")
                 .when()
                 .body(payload)
@@ -37,8 +37,10 @@ public class Service {
                 .then().extract().response();
 
     }
-    public void delete(String url, String body){
+    public Response delete(String url, String body){
 
+
+        return null;
     }
 
 }
