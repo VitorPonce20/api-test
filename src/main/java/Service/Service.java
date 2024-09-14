@@ -28,7 +28,13 @@ public class Service {
 
     }
 
-    public void put(String url, String body){
+    public void put(String url, String payload){
+        Response response = given()
+                .header("Accept", "Application/json")
+                .when()
+                .body(payload)
+                .put(url)
+                .then().extract().response();
 
     }
     public void delete(String url, String body){
